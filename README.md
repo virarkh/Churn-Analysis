@@ -9,6 +9,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 ```
+
 ```
 #import dataset
 df = pd.read_csv('https://storage.googleapis.com/dqlab-dataset/data_retail.csv', sep=';')
@@ -19,12 +20,12 @@ print(df.head())
 print('Info Dataset: ')
 print(df.info())
 ```
-![image](https://user-images.githubusercontent.com/50388300/177007873-dbf2e0ff-9dc2-493e-bf1a-f7033ec64679.png) <br>
+![image](https://user-images.githubusercontent.com/50388300/177007873-dbf2e0ff-9dc2-493e-bf1a-f7033ec64679.png) <br><br>
 ![image](https://user-images.githubusercontent.com/50388300/177007924-42a5cd34-5704-4754-b6a5-f07aba22201e.png)
 
 
- #### 2. Membersihkan dataset
- ```
+#### 2. Membersihkan dataset
+```
 #delete no and Row_Num columns
 del df['no']
 del df['Row_Num']
@@ -33,11 +34,13 @@ del df['Row_Num']
 df['First_Transaction'] = pd.to_datetime(df['First_Transaction']/1000, unit='s', origin='1970-01-01')
 df['Last_Transaction'] = pd.to_datetime(df['Last_Transaction']/1000, unit='s', origin='1970-01-01')
 ```
+
 ```
 print('Show Datetime First Transaction  : ', min(df['First_Transaction']))
 print('Show Datetime Last Transaction   : ', max(df['Last_Transaction']))
 ```
 ![image](https://user-images.githubusercontent.com/50388300/177007939-9fe43bd9-7ab5-4f04-ac5e-c6cf9b41dca6.png)
+
 ```
 #filter only 2016 - 2018
 data = df
@@ -50,6 +53,7 @@ print(data['Year_First_Transaction'].unique())
 print(data['Year_Last_Transaction'].unique())
 ```
 ![image](https://user-images.githubusercontent.com/50388300/177007951-506a460b-aa37-4393-9e99-bc30a4ad2e60.png)
+
 ```
 # classify the customers status
 data.loc[data['Last_Transaction'] < '2018-06-01', 'is_churn'] = True
