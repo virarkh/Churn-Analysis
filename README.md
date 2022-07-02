@@ -8,9 +8,7 @@ Ada beberapa tahapan untuk yang dilakukan pada project ini, sebagai berikut.
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
-```
 
-```
 #import dataset
 df = pd.read_csv('https://storage.googleapis.com/dqlab-dataset/data_retail.csv', sep=';')
 
@@ -20,9 +18,7 @@ print(df.head())
 print('Info Dataset: ')
 print(df.info())
 ```
-![image](https://user-images.githubusercontent.com/50388300/177007873-dbf2e0ff-9dc2-493e-bf1a-f7033ec64679.png) <br><br>
-![image](https://user-images.githubusercontent.com/50388300/177007924-42a5cd34-5704-4754-b6a5-f07aba22201e.png)
-
+![image](https://user-images.githubusercontent.com/50388300/177008237-56700622-d390-411b-bbeb-7d1038d793c4.png)
 
 #### 2. Membersihkan dataset
 ```
@@ -33,9 +29,7 @@ del df['Row_Num']
 #change data type First_Transaction and Last_Transaction
 df['First_Transaction'] = pd.to_datetime(df['First_Transaction']/1000, unit='s', origin='1970-01-01')
 df['Last_Transaction'] = pd.to_datetime(df['Last_Transaction']/1000, unit='s', origin='1970-01-01')
-```
 
-```
 print('Show Datetime First Transaction  : ', min(df['First_Transaction']))
 print('Show Datetime Last Transaction   : ', max(df['Last_Transaction']))
 ```
